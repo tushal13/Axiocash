@@ -1,17 +1,17 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:axiocash/views/screen/addpage.dart';
-import 'package:axiocash/views/screen/calender_page.dart';
-import 'package:axiocash/views/screen/history_page.dart';
-import 'package:axiocash/views/screen/homepage.dart';
-import 'package:axiocash/views/screen/reminder_page.dart';
+import 'package:axiocash/views/screen/AddPage.dart';
+import 'package:axiocash/views/screen/CalenderPage.dart';
+import 'package:axiocash/views/screen/HistoryPage.dart';
+import 'package:axiocash/views/screen/HomePage.dart';
+import 'package:axiocash/views/screen/ReminderPage.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
+import '../../controller/PageIndexPage.dart';
 import '../../controller/ThemeController.dart';
-import '../../controller/pageindex_page.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});

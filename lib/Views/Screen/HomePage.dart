@@ -1,5 +1,5 @@
-import 'package:axiocash/controller/axiocontroller.dart';
-import 'package:axiocash/views/component/axiotile.dart';
+import 'package:axiocash/controller/AxioController.dart';
+import 'package:axiocash/views/component/AxioTile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: isDark ? Color(0xff78FF3F) : Color(0xffE7FADF),
+                      color: isDark ? Colors.green.shade500 : Color(0xffE7FADF),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -89,9 +89,9 @@ class HomePage extends StatelessWidget {
                               color: isDark ? Colors.white : Colors.black),
                         ),
                         Text(
-                          '\$ ${income.toStringAsFixed(2)}',
-                          style: GoogleFonts.fahkwang(
-                              fontWeight: FontWeight.bold,
+                          '₹ ${income.toStringAsFixed(2)}',
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w700,
                               fontSize: 20,
                               color: Colors.black),
                         ),
@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: isDark ? Color(0xffFF3838) : Color(0xffFFE3E3),
+                      color: isDark ? Colors.red.shade500 : Color(0xffFFE3E3),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -118,9 +118,9 @@ class HomePage extends StatelessWidget {
                               color: isDark ? Colors.white : Colors.black),
                         ),
                         Text(
-                          '\$ ${expanse.toStringAsFixed(2)}',
-                          style: GoogleFonts.fahkwang(
-                              fontWeight: FontWeight.bold,
+                          '₹ ${expanse.toStringAsFixed(2)}',
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w700,
                               fontSize: 20,
                               color: Colors.black),
                         ),
@@ -155,7 +155,7 @@ class HomePage extends StatelessWidget {
               pro.axiolist.isEmpty
                   ? const Center(
                       child: Text(
-                      'No Data',
+                      'No Transaction Data',
                     ))
                   : Expanded(
                       child: Padding(

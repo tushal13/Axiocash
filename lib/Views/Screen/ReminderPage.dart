@@ -1,10 +1,10 @@
-import 'package:axiocash/controller/axiocontroller.dart';
+import 'package:axiocash/controller/AxioController.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
-import '../component/axiotile.dart';
+import '../component/AxioTile.dart';
 
 class ReminderPage extends StatelessWidget {
   ReminderPage({super.key});

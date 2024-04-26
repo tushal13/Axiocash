@@ -1,11 +1,12 @@
-import 'package:axiocash/controller/axiocontroller.dart';
-import 'package:axiocash/controller/calendercontrolle.dart';
-import 'package:axiocash/modal/axmodal.dart';
-import 'package:axiocash/views/component/axiotile.dart';
+import 'package:axiocash/controller/AxioController.dart';
+import 'package:axiocash/controller/CalenderControlle.dart';
+import 'package:axiocash/views/component/AxioTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+
+import '../../Model/AxModel.dart';
 
 class CalenderPage extends StatelessWidget {
   @override
@@ -112,34 +113,30 @@ class CalenderPage extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         ))
                       : pro.selectedDate != null
-                          ? Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: ListView.builder(
-                                itemCount: filteredlist.length,
-                                itemBuilder: (context, index) {
-                                  AxioModal ax = filteredlist[index];
+                          ? ListView.builder(
+                              itemCount: filteredlist.length,
+                              itemBuilder: (context, index) {
+                                AxioModal ax = filteredlist[index];
 
-                                  DateTime dateTime =
-                                      DateFormat("MMM d, yyyy").parse(ax.date!);
+                                DateTime dateTime =
+                                    DateFormat("MMM d, yyyy").parse(ax.date!);
 
-                                  return Provider.of<CalenderController>(
-                                                  context)
-                                              .selectedDate ==
-                                          dateTime
-                                      ? AxioTile(
-                                          name: ax.name,
-                                          item: ax.item,
-                                          amount: '${ax.amount}',
-                                          type: ax.type,
-                                          date: ax.pdate == ax.date
-                                              ? ax.date
-                                              : ax.pdate,
-                                          phoneno: ax.phno,
-                                          id: ax.id,
-                                        )
-                                      : Container();
-                                },
-                              ),
+                                return Provider.of<CalenderController>(context)
+                                            .selectedDate ==
+                                        dateTime
+                                    ? AxioTile(
+                                        name: ax.name,
+                                        item: ax.item,
+                                        amount: '${ax.amount}',
+                                        type: ax.type,
+                                        date: ax.pdate == ax.date
+                                            ? ax.date
+                                            : ax.pdate,
+                                        phoneno: ax.phno,
+                                        id: ax.id,
+                                      )
+                                    : Container();
+                              },
                             )
                           : ListView.builder(
                               itemCount: filteredlist.length,

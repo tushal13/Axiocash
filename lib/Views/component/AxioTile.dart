@@ -1,5 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:axiocash/helper/dbhelper.dart';
+import 'package:axiocash/helper/DbHelper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,8 +7,8 @@ import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../controller/AxioController.dart';
 import '../../controller/ThemeController.dart';
-import '../../controller/axiocontroller.dart';
 
 class AxioTile extends StatelessWidget {
   int? id;
@@ -311,7 +311,6 @@ class AxioTile extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Spacer(),
                   Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 7, horizontal: 10),
@@ -319,14 +318,17 @@ class AxioTile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            type == 'INCOME' ? '+ $amount' : '- $amount',
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: type == 'INCOME'
-                                    ? Colors.green
-                                    : Colors.red),
+                          Container(
+                            child: Text(
+                              type == 'INCOME' ? '+ $amount' : '- $amount',
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.poppins(
+                                  fontSize: amount!.length < 4 ? 16 : 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: type == 'INCOME'
+                                      ? Colors.green
+                                      : Colors.red),
+                            ),
                           ),
                           type == 'INCOME'
                               ? Container()

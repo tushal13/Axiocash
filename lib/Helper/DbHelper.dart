@@ -1,4 +1,4 @@
-import 'package:axiocash/modal/axmodal.dart';
+import 'package:axiocash/Model/AxModel.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';

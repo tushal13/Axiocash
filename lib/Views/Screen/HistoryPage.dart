@@ -1,10 +1,11 @@
-import 'package:axiocash/controller/axiocontroller.dart';
-import 'package:axiocash/modal/axmodal.dart';
-import 'package:axiocash/views/component/axiotile.dart';
+import 'package:axiocash/controller/AxioController.dart';
+import 'package:axiocash/views/component/AxioTile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+
+import '../../Model/AxModel.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});

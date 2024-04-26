@@ -1,13 +1,13 @@
-import 'package:axiocash/modal/axmodal.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
+import '../../Model/AxModel.dart';
+import '../../controller/AxioController.dart';
 import '../../controller/ThemeController.dart';
-import '../../controller/axiocontroller.dart';
-import '../../helper/dbhelper.dart';
+import '../../helper/DbHelper.dart';
 
 class AddTransaction extends StatelessWidget {
   AddTransaction({super.key});
@@ -70,7 +70,7 @@ class AddTransaction extends StatelessWidget {
                       ),
                       fillColor: isDark
                           ? Colors.white.withOpacity(0.05)
-                          : Colors.grey.withOpacity(0.5),
+                          : Colors.grey.withOpacity(0.2),
                     ),
                   ),
                   SizedBox(
@@ -91,6 +91,7 @@ class AddTransaction extends StatelessWidget {
                         return "Enter Customer Phone Number";
                       }
                     },
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       hintText: "Customer Phone Number",
                       hintStyle: GoogleFonts.roboto(
@@ -105,7 +106,7 @@ class AddTransaction extends StatelessWidget {
                       ),
                       fillColor: isDark
                           ? Colors.white.withOpacity(0.05)
-                          : Colors.grey.withOpacity(0.5),
+                          : Colors.grey.withOpacity(0.2),
                     ),
                     maxLength: 10,
                   ),
@@ -138,7 +139,7 @@ class AddTransaction extends StatelessWidget {
                       ),
                       fillColor: isDark
                           ? Colors.white.withOpacity(0.05)
-                          : Colors.grey.withOpacity(0.5),
+                          : Colors.grey.withOpacity(0.2),
                     ),
                     maxLines: 3,
                   ),
@@ -160,8 +161,10 @@ class AddTransaction extends StatelessWidget {
                         return "Enter Amount of Items";
                       }
                     },
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: "Enter Amount",
+                      prefixText: '₹',
                       hintStyle: GoogleFonts.roboto(
                         color: isDark ? Colors.white : Colors.black,
                         fontSize: 18,
@@ -174,7 +177,7 @@ class AddTransaction extends StatelessWidget {
                       ),
                       fillColor: isDark
                           ? Colors.white.withOpacity(0.05)
-                          : Colors.grey.withOpacity(0.5),
+                          : Colors.grey.withOpacity(0.2),
                     ),
                   ),
                   SizedBox(
@@ -279,7 +282,7 @@ class AddTransaction extends StatelessWidget {
                               decoration: BoxDecoration(
                                   color: isDark
                                       ? Colors.white.withOpacity(0.05)
-                                      : Colors.grey.withOpacity(0.5),
+                                      : Colors.grey.withOpacity(0.2),
                                   borderRadius: BorderRadius.circular(12)),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -290,7 +293,10 @@ class AddTransaction extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Text("${pro.time}"),
+                                      Text("${pro.time}",
+                                          style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500)),
                                       IconButton(
                                           onPressed: () async {
                                             pro.showMyTime(context);
@@ -311,7 +317,7 @@ class AddTransaction extends StatelessWidget {
                               decoration: BoxDecoration(
                                   color: isDark
                                       ? Colors.white.withOpacity(0.05)
-                                      : Colors.grey.withOpacity(0.5),
+                                      : Colors.grey.withOpacity(0.2),
                                   borderRadius: BorderRadius.circular(12)),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -322,7 +328,12 @@ class AddTransaction extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Text("${pro.date}"),
+                                      Text(
+                                        "${pro.date}",
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500),
+                                      ),
                                       IconButton(
                                           onPressed: () async {
                                             pro.showMyDate(context);
@@ -369,7 +380,13 @@ class AddTransaction extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  Text("${pro.pdate}"),
+                                  Text(
+                                    "${pro.pdate}",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
                                   IconButton(
                                       onPressed: () async {
                                         pro.showMypDate(context);

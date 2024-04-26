@@ -1,7 +1,8 @@
-import 'package:axiocash/helper/dbhelper.dart';
-import 'package:axiocash/modal/axmodal.dart';
+import 'package:axiocash/helper/DbHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import '../Model/AxModel.dart';
 
 class AxioController extends ChangeNotifier {
   List<AxioModal> axiolist = [];
